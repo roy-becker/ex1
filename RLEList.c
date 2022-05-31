@@ -213,6 +213,8 @@ char RLEListGet(RLEList list, int index, RLEListResult* result)
 
 int numLength(int n)
 {
+	return 2;
+	
 	if (n < 10)
 	{
 		return 1;
