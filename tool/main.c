@@ -13,14 +13,15 @@ char invert(char value)
     switch (value)
     {
         case ' ':
-            return '@';
+            value = '@';
+            break;
         
         case '@':
-            return ' ';
-        
-        default:
-            return value;
+            value = ' ';
+            break;
     }
+    
+    return value;
 }
 
 
