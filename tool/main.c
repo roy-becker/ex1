@@ -69,7 +69,8 @@ int main(int argc, char **argv)
 
     if (inverted)
     {
-        RLEListMap(list, invert);
+        printf("inverted!");
+        //RLEListMap(list, invert);
     }
 
     if (!encoded)
@@ -78,7 +79,8 @@ int main(int argc, char **argv)
     }
     else
     {
-        asciiArtPrintEncoded(list, out_stream);
+        printf("encoded!");
+        //asciiArtPrintEncoded(list, out_stream);
     }
 
     fclose(in_stream);
