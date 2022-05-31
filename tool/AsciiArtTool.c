@@ -49,7 +49,9 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
 
     RLEListResult* result = RLE_LIST_SUCCESS;
 
-    char* temp = RLEListExportToString(list, result);
+    //char* temp = RLEListExportToString(list, result);
+
+    char* temp = "fuck you/n";
 
     if (*result != RLE_LIST_SUCCESS)
     {

@@ -248,7 +248,6 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 	int size = 0;
 
-	/*
 	RLEList temp = list;
 
 	while (temp != NULL)
@@ -257,7 +256,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 		temp = temp->next;
 	}
 
-	
+	char* out = malloc(size + 1);
 
 	if (out == NULL)
 	{
@@ -284,9 +283,6 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 		list = list->next;
 	}
-	*/
-
-	char* out = malloc(size + 1);
 
 	out[size] = '\0';
 
