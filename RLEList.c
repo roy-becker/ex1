@@ -280,6 +280,8 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 		out[counter] = '\n';
 		counter++;
+
+		list = list->next;
 	}
 
 	out[size] = '\0';
