@@ -47,9 +47,9 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
         return RLE_LIST_NULL_ARGUMENT;
     }
 
+    /*
     RLEListResult* result = RLE_LIST_SUCCESS;
 
-    /*
     char* temp = RLEListExportToString(list, result);
 
     if (*result != RLE_LIST_SUCCESS)
@@ -61,6 +61,6 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
 
     free(temp);
     */
-   
+
     return RLE_LIST_SUCCESS;
 }
