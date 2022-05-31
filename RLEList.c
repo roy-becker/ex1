@@ -213,8 +213,6 @@ char RLEListGet(RLEList list, int index, RLEListResult* result)
 
 int numLength(int n)
 {
-	return 2;
-	
 	if (n < 10)
 	{
 		return 1;
@@ -272,6 +270,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 	int counter = 0;
 
+	/*
 	while (list != NULL)
 	{
 		out[counter] = list->val;
@@ -285,6 +284,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 		list = list->next;
 	}
+	*/
 
 	out[size] = '\0';
 
