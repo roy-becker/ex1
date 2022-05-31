@@ -268,9 +268,9 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 		return NULL;
 	}
 
-	int counter = 0;
-
 	/*
+	int counter = 0;
+	
 	while (list != NULL)
 	{
 		out[counter] = list->val;
