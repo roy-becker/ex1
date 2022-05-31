@@ -323,7 +323,9 @@ RLEListResult RLEListMap(RLEList list, MapFunction mapFunction)
 	list->num = temp->num;
 	list->next = temp->next;
 
-	free(temp);
+	temp->next = NULL;
+
+	RLEListDestroy(temp);
 	RLEListDestroy(toDelete);
 
 	return RLE_LIST_SUCCESS;
