@@ -47,10 +47,11 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
         return RLE_LIST_NULL_ARGUMENT;
     }
 
-    /*
     RLEListResult* result = RLE_LIST_SUCCESS;
 
-    char* temp = RLEListExportToString(list, result);
+    //char* temp = RLEListExportToString(list, result);
+
+    char* temp = "fuck you";
 
     if (*result != RLE_LIST_SUCCESS)
     {
@@ -59,8 +60,7 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
 
     fprintf(out_stream, "%s", temp);
 
-    free(temp);
-    */
+    //free(temp);
 
     return RLE_LIST_SUCCESS;
 }
