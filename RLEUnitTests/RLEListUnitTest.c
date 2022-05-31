@@ -447,7 +447,7 @@ bool RLEListRemoveTest()
 
     ASSERT_TEST(RLEListRemove(NULL, 0) == RLE_LIST_NULL_ARGUMENT, destroy);
 
-    for (int i = -10; i < 10; i++)
+    for (int i = -1000; i < 1000; i++)
     {
         ASSERT_TEST(RLEListRemove(list, i * i * i * i * i) == RLE_LIST_INDEX_OUT_OF_BOUNDS, destroy);
     }

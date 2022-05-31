@@ -109,6 +109,11 @@ RLEListResult RLEListRemove(RLEList list, int index)
 		return RLE_LIST_NULL_ARGUMENT;
 	}
 
+	if (index < 0)
+	{
+		return RLE_LIST_INDEX_OUT_OF_BOUNDS;
+	}
+
 	int counter = 0;
 
 	RLEList previous = NULL;
