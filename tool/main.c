@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 
     if (inverted)
     {
-        //RLEListMap(list, invert);
+        RLEListMap(list, invert);
     }
 
     if (!encoded)

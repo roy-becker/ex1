@@ -453,7 +453,7 @@ bool RLEListRemoveTest()
     }
 
     RLEListDestroy(list);
-    copyStrHelper("145678901234567890125556789012345678901234567000", testString);
+    copyStrHelper("14567890123456789012555678901234567890123456700000", testString);
     MAKE_LIST_WITH_ASSERT(list, testString, destroy); // 50 chars
     for (int i = 49; i >= 0; --i)
     {

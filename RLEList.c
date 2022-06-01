@@ -141,7 +141,7 @@ RLEListResult RLEListRemove(RLEList list, int index)
 		return RLE_LIST_SUCCESS;
 	}
 
-	RLEList toDelete;
+	RLEList toDelete = NULL;
 
 	if (previous == NULL)
 	{
