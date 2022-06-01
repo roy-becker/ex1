@@ -195,14 +195,19 @@ char RLEListGet(RLEList list, int index, RLEListResult* result)
 
 	if (index < 0)
 	{
-		*result = RLE_LIST_INDEX_OUT_OF_BOUNDS;
+		if (result != NULL)
+		{
+			*result = RLE_LIST_INDEX_OUT_OF_BOUNDS;
+		}
+		
+		return 0;
 	}
 
 	int counter = 0;
 
 	while (list != NULL)
 	{
-		if (index - counter < list->num)
+		if (index < counter + list->num)
 		{
 			if (result != NULL)
 			{
