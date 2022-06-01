@@ -141,15 +141,18 @@ RLEListResult RLEListRemove(RLEList list, int index)
 		return RLE_LIST_SUCCESS;
 	}
 
+	RLEList toDelete;
+
 	if (previous == NULL)
 	{
 		if (list->next == NULL)
 		{
 			list->val = NULL_CHAR;
+			
 			return RLE_LIST_SUCCESS;
 		}
 
-		RLEList toDelete = list->next;
+		toDelete = list->next;
 
 		list->val = toDelete->val;
 		list->num = toDelete->num;
@@ -157,7 +160,7 @@ RLEListResult RLEListRemove(RLEList list, int index)
 	}
 	else
 	{
-		RLEList toDelete = list;
+		toDelete = list;
 
 		if (list->next != NULL && previous->val == list->next->val)
 		{
