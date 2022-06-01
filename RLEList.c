@@ -120,7 +120,7 @@ RLEListResult RLEListRemove(RLEList list, int index)
 
 	while (list != NULL)
 	{
-		if (index - counter < list->num)
+		if (index < counter + list->num)
 		{
 			list->num--;
 			break;
@@ -149,29 +149,30 @@ RLEListResult RLEListRemove(RLEList list, int index)
 			return RLE_LIST_SUCCESS;
 		}
 
-		list->val = list->next->val;
-		list->num = list->next->num;
-		list->next = list->next->next;
+		RLEList toDelete = list->next;
 
-		free(list->next);
-
-		return RLE_LIST_SUCCESS;
+		list->val = toDelete->val;
+		list->num = toDelete->num;
+		list->next = toDelete->next;
 	}
-
-	if (list->next != NULL && previous->val == list->next->val)
+	else
 	{
-		previous->num += list->next->num;
-		previous->next = list->next->next;
+		RLEList toDelete = list;
 
-		free(list->next);
-		free(list);
-
-		return RLE_LIST_SUCCESS;
+		if (list->next != NULL && previous->val == list->next->val)
+		{
+			previous->num += list->next->num;
+			previous->next = list->next->next;
+		}
+		else
+		{
+			previous->next = list->next;
+		}
 	}
 
-	previous->next = list->next;
+	toDelete->next = NULL;
 
-	free(list);
+	RLEListDestroy(toDelete);
 
 	return RLE_LIST_SUCCESS;
 }
@@ -187,6 +188,11 @@ char RLEListGet(RLEList list, int index, RLEListResult* result)
 		}
 
 		return 0;
+	}
+
+	if (index < 0)
+	{
+		*result = RLE_LIST_INDEX_OUT_OF_BOUNDS;
 	}
 
 	int counter = 0;
