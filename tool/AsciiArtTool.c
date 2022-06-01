@@ -47,18 +47,12 @@ RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream)
         return RLE_LIST_NULL_ARGUMENT;
     }
 
-    RLEListResult* result = RLE_LIST_SUCCESS;
-
-    char* temp = RLEListExportToString(list, result);
-
-    if (*result != RLE_LIST_SUCCESS)
+    while (list != NULL)
     {
-        return *result;
+        fprintf(out_stream, "%c%d\n", list->val, list->num);
+
+        list = list->next;
     }
-
-    fprintf(out_stream, "%s", temp);
-
-    free(temp);
 
     return RLE_LIST_SUCCESS;
 }
