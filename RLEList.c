@@ -291,7 +291,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 	while (list != NULL)
 	{
-		sprintf(out + counter, "%c%d\n", list->val, list->num);
+		snprintf(out + counter, size - counter - 1, "%c%d\n", list->val, list->num);
 		counter += 1 + numLength(list->num) + 1;
 
 		list = list->next;
