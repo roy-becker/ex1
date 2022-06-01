@@ -291,19 +291,11 @@ char* RLEListExportToString(RLEList list, RLEListResult* result)
 
 	while (list != NULL)
 	{
-		out[counter] = list->val;
-		counter++;
-		
-		sprintf(out + counter, "%d", list->num);
-		counter += numLength(list->num);
-
-		out[counter] = '\n';
-		counter++;
+		sprintf(out + counter, "%c%d\n", list->val, list->num);
+		counter += 1 + numLength(list->num) + 1;
 
 		list = list->next;
 	}
-
-	out[size] = '\0';
 
 	if (result != NULL)
 	{
