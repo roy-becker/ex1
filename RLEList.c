@@ -321,31 +321,12 @@ RLEListResult RLEListMap(RLEList list, MapFunction mapFunction)
 		return RLE_LIST_NULL_ARGUMENT;
 	}
 
-	RLEList temp = RLEListCreate();
-
-	if (temp == NULL)
+	while (list != NULL)
 	{
-		return RLE_LIST_OUT_OF_MEMORY;
+		list->val = mapFunction(list->val);
+
+		list = list->next;
 	}
-
-	RLEListResult* result = RLE_LIST_SUCCESS;
-
-	for (int i = 0; i < RLEListSize(list); i++)
-	{
-		char value = RLEListGet(list, i, result);
-		RLEListAppend(list, mapFunction(value));
-	}
-
-	RLEList toDelete = list->next;
-
-	list->val = temp->val;
-	list->num = temp->num;
-	list->next = temp->next;
-
-	temp->next = NULL;
-
-	RLEListDestroy(temp);
-	RLEListDestroy(toDelete);
 
 	return RLE_LIST_SUCCESS;
 }
